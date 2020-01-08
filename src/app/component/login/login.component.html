@@ -1,0 +1,77 @@
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[0]" alt="Random first slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Bienvenue !</h3>
+      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Create Account</button>
+    </div>
+  </ng-template>
+
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[2]" alt="Random third slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Site web Amine Bouzayeni</h3>
+      <button class="btn btn-lg btn-outline-primary" (click)="openSignIn(contentsignin)">Sign In</button>
+    </div>
+  </ng-template>
+<ng-template ngbSlide>
+  <div class="picsum-img-wrapper">
+    <img [src]="images[1]" alt="Random second slide">
+  </div>
+  <div class="carousel-caption">
+    <h3>Vente d'accessoir personnel !</h3>
+    <button class="btn btn-lg btn-outline-primary" (click)="openSignIn(contentsignin)">Sign In</button>
+  </div>
+</ng-template>
+</ngb-carousel>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="input" >
+          <input [(ngModel)] = "adressMailsignup" id="Adresse Mail" class="form-control" placeholder="Adresse Mail" name="am" #am>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input">
+          <input [(ngModel)] = "passwordsignup" id="Password" class="form-control" placeholder="Password" name="pwd" #pwd type="password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(adressMailsignup+' '+passwordsignup)">SignUp</button>
+  </div>
+</ng-template>
+<ng-template #contentsignin let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Sign In</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="input" >
+          <input [(ngModel)] = "adressMailsignin" id="Adresse Mail" class="form-control" placeholder="Adresse Mail" name="am" #am>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input">
+          <input [(ngModel)] = "passwordsignin" id="Password" class="form-control" placeholder="Password" name="pwd" #pwd type="password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(adressMailsignin+' '+passwordsignin)">SignIn</button>
+  </div>
+</ng-template>
+
